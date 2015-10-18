@@ -14,7 +14,7 @@ typedef enum {
     mtcp_connection_event_after_accept,
 
     mtcp_connection_event_before_read,
-    mtcp_connection_event_after_accept,
+    mtcp_connection_event_after_read,
 
     mtcp_connection_event_before_write,
     mtcp_connection_event_after_write,
@@ -49,7 +49,8 @@ int mtcp_connection_event_remove(mtcp_connection_event_t *connection_event,mtcp_
 
 int mtcp_connection_event_flush(mtcp_connection_event_t *connection_event);
 
-int mtcp_connection_do_event(mtcp_connection_event_t *connection_event,mtcp_connection_event_type_t event);
+int mtcp_connection_do_event(mtcp_connection_event_t *connection_event,mtcp_connection_event_type_t event,void *data, int len);
+
 
 
 #endif //OPEN_PROXY_MTCP_CONNECTION_EVENT_H

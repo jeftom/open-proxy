@@ -1,8 +1,0 @@
-//
-// Created by Misko_Lee on 15/10/17.
-//
-
-#ifndef OPEN_PROXY_MTCP_CONNECTION_POOL_H
-#define OPEN_PROXY_MTCP_CONNECTION_POOL_H
-
-#endif //OPEN_PROXY_MTCP_CONNECTION_POOL_H

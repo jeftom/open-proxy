@@ -20,8 +20,6 @@ typedef struct mtcp_connection_s mtcp_connection_t;
  */
 
 
-typedef int(*mtcp_connection_event_handler)(mtcp_connection_t   *connection,void *data);
-
 struct mtcp_connection_event_data{
 
     void *data;
@@ -47,10 +45,6 @@ struct mtcp_connection_s
     mtcp_buffer_t write_buffer;
 
     mtcp_server_t *server;
-
-    mtcp_connection_read_handler   read_handler;
-
-    mtcp_connection_write_handler  write_handler;
 
 };
 
