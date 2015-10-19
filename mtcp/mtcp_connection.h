@@ -5,14 +5,28 @@
 #ifndef OPEN_PROXY_MTCP_CONNECTION_H
 #define OPEN_PROXY_MTCP_CONNECTION_H
 
-
 #include <event.h>
 #include "mtcp_buffer.h"
 #include "mtcp_server.h"
+#include "mtcp_connection_event.h"
+#define MTCP_CONNECTION_MAX_READ_SIZE 1024 * 4
 
-typedef struct mtcp_connection_s mtcp_connection_t;
 
 
+typedef enum mtcp_connection_state_t
+{
+
+    mtcp_connection_state_accpet = 1,
+
+    mtcp_connection_state_read_again,
+    mtcp_connection_state_read_end,
+
+    mtcp_connection_state_write,
+    mtcp_connection_state_write_end,
+
+    mtcp_connection_state_close
+
+};
 /**
  *
  * It's dynamic handler for connection life's time.
@@ -46,7 +60,12 @@ struct mtcp_connection_s
 
     mtcp_server_t *server;
 
+    mtcp_connection_event_t *event_list;
+
+    mtcp_connection_state_t state;
+
 };
+
 
 mtcp_connection_t *mtcp_connection_create(mtcp_server_t *server);
 

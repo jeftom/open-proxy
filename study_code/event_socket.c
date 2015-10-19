@@ -62,7 +62,6 @@ void on_read(int fd,short event, void *data){
 
 void on_write(int fd,short event,void *data){
 
-    char* buffer = "echo\n";
 
     send(fd, buffer, strlen(buffer), 0);
 

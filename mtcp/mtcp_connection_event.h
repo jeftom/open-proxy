@@ -5,7 +5,7 @@
 #ifndef OPEN_PROXY_MTCP_CONNECTION_EVENT_H
 #define OPEN_PROXY_MTCP_CONNECTION_EVENT_H
 
-#include "mtcp_connection.h"
+typedef struct mtcp_connection_s mtcp_connection_t;
 
 typedef enum {
 
@@ -49,7 +49,7 @@ int mtcp_connection_event_remove(mtcp_connection_event_t *connection_event,mtcp_
 
 int mtcp_connection_event_flush(mtcp_connection_event_t *connection_event);
 
-int mtcp_connection_do_event(mtcp_connection_event_t *connection_event,mtcp_connection_event_type_t event,void *data, int len);
+int mtcp_connection_event_do(mtcp_connection_event_t *connection_event,mtcp_connection_event_type_t event,void *data, int len);
 
 
 

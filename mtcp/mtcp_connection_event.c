@@ -3,10 +3,10 @@
 //
 
 #include "mtcp_connection_event.h"
-
+#include <stdlib.h>
 #define MTCP_CONNECTION_EVENT_DEFAULT_HANDLER_GENERATOR(name) \
 int mtcp_connection_event_default_handler_##name(mtcp_connection_t *connection,void *data,int len){\
-    printf("default connection event handler:#name\n");\
+    printf("default connection event handler:%s\n",#name);\
     return 1;\
 }
 
@@ -82,7 +82,7 @@ int mtcp_connection_event_flush(mtcp_connection_event_t *connection_event){
 
 }
 
-int mtcp_connection_do_event(mtcp_connection_event_t *connection_event,mtcp_connection_event_type_t event,void *data,int len){
+int mtcp_connection_event_do(mtcp_connection_event_t *connection_event,mtcp_connection_event_type_t event,void *data,int len){
 
     mtcp_connection_event_handler  handler = connection_event->list[event];
 
